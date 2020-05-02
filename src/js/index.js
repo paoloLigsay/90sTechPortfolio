@@ -108,7 +108,7 @@ contact_input[1].onkeyup = () => {
   } else {
     contact_email.style.opacity = 1
     contact_email.style.transform = 'translateX(0)'
-  }
+  } 
 }
 
 contact_content.onkeyup = () => {
