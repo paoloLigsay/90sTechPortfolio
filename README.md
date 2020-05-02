@@ -7,7 +7,7 @@ This project is inspired with both 90s and modern tech based design and color sc
 ### here are the lower sections of my website 
 ![](src/img/portfolio_long.jpg)
 
-##SASS Compiler
+## SASS Compiler
 Try installing this extension if your using VS Code:
 https://marketplace.visualstudio.com/items?itemName=ritwickdey.live-sass
 
