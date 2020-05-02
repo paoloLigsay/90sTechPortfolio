@@ -1,8 +1,5 @@
 # 90sTechPortfolio
-This is a template for a web portfolio I created which is inspired with both 90s and modern tech based design and color scheme
-Feel free to use, modify and recreate this project, have fun! 
+This project is inspired with both 90s and modern tech based design and color scheme! I used old icons and hover effects to give the 90s vibe but still do adjustments so that it will blend well with the website.
 
-[ DO NOT DELETE THIS FILE ]
-----------------------------------------
-Developed by Paolo Ligsay
-----------------------------------------
+## Here's what it looks like! 
+![](src/img/portfolio.jpg)
