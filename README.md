@@ -3,6 +3,7 @@ This project is inspired with both 90s and modern tech based design and color sc
 
 ## Here's what it looks like! 
 ![](src/img/portfolio.jpg)
+![](src/img/portfolio_long.jpg)
 
 ##SASS Compiler
 Try installing this extension if your using VS Code:
