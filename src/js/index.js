@@ -143,14 +143,30 @@ if (window.innerHeight < 750) {
   scroll.style.display = 'none'
 }
 
+// phone animation
+
+let phone_btn = get('.phone-btn')
+let phone_nav = get('.pml-phone__nav')
+let phone = get('.pml-phone')
+let phone_click = 2
+
+phone_btn.onclick = () => {
+  phone_nav.classList.toggle('pml-phone__nav--active')
+
+  if (phone_click%2 == 0) {
+    phone.style.animationPlayState = 'paused'
+    phone_btn.innerHTML = 'PLAY'
+  } else {
+    phone.style.animationPlayState = 'running'
+    phone_btn.innerHTML = 'PAUSE'
+  }
+  phone_click++
+}
+
 
 // functions
 
 function validateEmail(email) {
   var isEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return isEmail.test(String(email).toLowerCase());
-}
-
-funtion getCurrentDate() {
-  let today //
 }
