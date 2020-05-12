@@ -135,6 +135,17 @@ contact_content.onkeyup = () => {
   }
 }
 
+//removing scroll on innerheight less than 750
+
+let scroll = get('.pml-scroll')
+
+if (window.innerHeight < 750 ) {
+  scroll.style.display = 'none'
+}
+
+
+// functions
+
 function validateEmail(email) {
   var isEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return isEmail.test(String(email).toLowerCase());
