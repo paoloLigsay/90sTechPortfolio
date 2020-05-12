@@ -371,33 +371,61 @@ div {
   background-color: $primary-color;
 
   &-phone {
-    width: 350px;
-    height: 550px;
+    width: 250px;
+    height: 450px;
     background-color: $white;
     transform-style: preserve-3d;
     transform: rotateZ(15deg) rotateY(11deg) rotateX(-28deg);
     transition: all 300ms ease-in-out;
     position: relative;
+    background: linear-gradient(to top, rgb(32, 32, 32), rgb(43, 44, 44));
+
+    &__inner {
+      width: 100%;
+      height: 100%;
+      padding: 20px;
+      color: $secondary-color;
+      line-height: 1.4;
+
+      .pml-blink-underscore::before {
+        bottom: 2px;
+      }
+
+      &-flex {
+        padding-top: 30px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        &-box {
+          width: 47%;
+          height: 100px;
+          background-color: rgb(29, 29, 29);
+          @include center;
+          margin: 3px;
+        }
+      }
+    }
 
     &__lower {
       position: absolute;
-      bottom: -20px;
-      right: -15px;
-      height: 20px;
-      width: calc( 100% + 6px );
+      bottom: -10px;
+      right: -5px;
+      height: 10px;
+      width: 100%;
       transform: skew(50deg);
-      background: linear-gradient(to right, rgb(107, 107, 107), rgb(185, 185, 185));
+      background: linear-gradient(to right, rgb(15, 15, 15), rgb(35, 36, 37));
     }
 
     &__right {
       position: absolute;
-      bottom: -10px;
-      right: -25px;
-      width: 25px;
+      bottom: -5px;
+      right: -10px;
+      width: 10px;
       left: auto;
       height: 100%;
       transform: skewY(41deg);
-      background: linear-gradient(to top, rgb(185, 185, 185), rgb(245, 245, 245));
+      background: linear-gradient(to top, rgb(35, 36, 37), rgb(49, 50, 51));
     }
 
     &-container {
