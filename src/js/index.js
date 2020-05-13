@@ -146,6 +146,7 @@ if (window.innerHeight < 750) {
 // phone animation
 
 let phone_btn = get('.phone-btn')
+let phone_gradient = get('.pml-phone__gradient')
 let phone_nav = get('.pml-phone__nav')
 let phone = get('.pml-phone')
 let phone_click = 2
@@ -155,9 +156,11 @@ phone_btn.onclick = () => {
 
   if (phone_click%2 == 0) {
     phone.style.animationPlayState = 'paused'
+    phone_gradient.style.animationPlayState = 'paused'
     phone_btn.innerHTML = 'PLAY'
   } else {
     phone.style.animationPlayState = 'running'
+    phone_gradient.style.animationPlayState = 'running'
     phone_btn.innerHTML = 'PAUSE'
   }
   phone_click++

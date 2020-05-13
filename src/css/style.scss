@@ -8,7 +8,7 @@ $color-2: #004e56;
 $color-3: #07171e;
 $color-3: rgb(8, 21, 29);
 
-$red: rgb(255, 18, 101);
+$red: rgb(255, 21, 60);
 
 $text-color: #dae0e5;
 $text-color-2: #a7b8d1;
@@ -370,6 +370,85 @@ div {
   height: auto;
   background-color: $primary-color;
 
+  &__timeline {
+    width: 100%;
+    max-width: 1000px;
+    height: auto;
+    margin: 200px auto;
+    display: flex;
+    flex-direction: column;
+
+    &-container {
+      width: 49%;
+      height: auto;
+      position: relative;
+      margin-bottom: 10px;
+      cursor: pointer;
+      padding: 10px 20px 10px;
+
+      .pml__text {
+        line-height: 1.4;
+        text-align: right;
+
+        &--25 {
+          color: $secondary-color;
+          text-align: right;
+          margin-bottom: 20px;
+        }
+
+        &--14 {
+          margin-top: 20px;
+          text-align: right;
+          color: $secondary-color;
+        }
+      }
+
+      &::before {
+        content: '';
+        width: 10px;
+        height: 100%;
+        position: absolute;
+        left: auto;
+        right: -10px;
+        top: auto;
+        bottom: 0;
+        background-color: $secondary-color;
+        opacity: 0.4;
+        transition: all 300ms ease;
+      }
+
+      &:nth-child(odd) {
+        margin-left: 50%;
+
+        .pml__text {
+          text-align: left;
+
+          &--25 {
+            text-align: left;
+          }
+
+          &--14 {
+            text-align: left;
+          }
+        }
+
+        &::before {
+          right: auto;
+          left: -10px;
+        }
+      }
+
+      &:hover {
+        &::before {
+          opacity: 1;
+          // height: 50%;
+          // bottom: 50%;
+          // transform: translateY(50%);
+        }
+      }
+    }
+  }
+
   &-phone {
     width: 275px;
     height: 500px;
@@ -378,8 +457,8 @@ div {
     transform: rotateZ(25deg) rotateY(30deg) rotateX(-28deg);
     transition: all 300ms ease-in-out;
     position: relative;
-    background: linear-gradient(to top, rgb(17, 24, 24), rgb(56, 68, 68));
-    box-shadow: 35px 35px 25px -10px rgba(0, 0, 0, 0.4);
+    background: linear-gradient(to top, rgb(22, 23, 24), rgb(48, 58, 58));
+    box-shadow: 65px 65px 35px -5px rgba(0, 0, 0, 0.5);
     @include sp {
       width: 150px;
       height: 300px;
@@ -390,10 +469,23 @@ div {
       @include sp {
         animation: phoneSp 8s infinite;
       }
+
+      .pml-phone__gradient {
+        animation: phoneGradient 8s infinite;
+      }
     }
 
-    &--stop {
-      animation: phoneStop 2s forwards;
+    &__gradient {
+      width: 100%;
+      height: 100%;
+      background-color: rgba(196, 0, 92, 0.616);
+      opacity: 0;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: auto;
+      top: auto;
+      z-index: -1;
     }
 
     .pml__text {
@@ -405,6 +497,10 @@ div {
         @include sp {
           font-size: 8px;
         }
+      }
+
+      span {
+        color: $secondary-color;
       }
 
       &--45 {
@@ -430,6 +526,7 @@ div {
     &__nav {
       width: 15px;
       height: 15px;
+      opacity: 0.3;
       background-color: $red;
       box-shadow: 35px 35px 25px -10px rgba(0, 0, 0, 0.4);
       border-radius: 100%;
@@ -504,15 +601,103 @@ div {
         }
 
         &-box {
-          width: 47%;
+          width: 49%;
           height: 100px;
           background-color: #00c9c2d0;
           @include center;
-          margin: 3px;
+          margin: 3px 0;
           color: $white;
+          transition: all 300ms ease;
+          cursor: pointer;
+          position: relative;
           @include sp {
             width: 45%;
             height: 70px;
+          }
+
+          &::before {
+            content: 'data 01';
+            height: 35px;
+            width: 100%;
+            transform: translateY(20px);
+            position: absolute;
+            left: auto;
+            right: -105%;
+            top: 0;
+            bottom: auto;
+            background-color: $secondary-color;
+            transition: all 300ms ease;
+            box-shadow: 15px 15px 25px -5px rgba(0, 0, 0, 0.4);
+            opacity: 0;
+            padding-left: 15px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-size: 18px;
+            visibility: hidden;
+          }
+
+          &::after {
+            content: 'data 02';
+            height: 35px;
+            width: 100%;
+            transform: translateY(20px);
+            position: absolute;
+            left: auto;
+            right: -105%;
+            top: 40px;
+            bottom: auto;
+            background-color: $secondary-color;
+            transition: all 300ms ease;
+            box-shadow: 15px 15px 25px -5px rgba(0, 0, 0, 0.4);
+            opacity: 0;
+            padding-left: 15px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-size: 18px;
+            visibility: hidden;
+          }
+
+          &:hover {
+            background-color: #00c9c2fd;
+            transform: translateZ(20px) translateY(-20px) translateX(-20px);
+            box-shadow: 20px 20px 25px 0 rgba(26, 26, 26, 0.911);
+
+            &::before {
+              transform: translateY(0);
+              right: -105%;
+              opacity: 1;
+              visibility: visible;
+            }
+
+            &::after {
+              transform: translateY(0);
+              right: -105%;
+              opacity: 1;
+              visibility: visible;
+            }
+          }
+
+          &:nth-child(even) {
+            &::before,
+            &::after {
+              right: auto;
+              left: -105%;
+              box-shadow: -15px 15px 25px -5px rgba(0, 0, 0, 0.4);
+            }
+
+            &:hover {
+              &::before {
+                left: -105%;
+              }
+  
+              &::after {
+                left: -105%;
+              }
+            }
           }
         }
       }
@@ -520,9 +705,9 @@ div {
 
     &__lower {
       position: absolute;
-      bottom: -5px;
-      right: -3px;
-      height: 5px;
+      bottom: -8px;
+      right: -4px;
+      height: 8px;
       width: 100%;
       transform: skew(50deg);
       // background: linear-gradient(to right, rgb(15, 15, 15), rgb(35, 36, 37));
@@ -531,9 +716,9 @@ div {
 
     &__right {
       position: absolute;
-      bottom: -2px;
-      right: -5px;
-      width: 5px;
+      bottom: -4px;
+      right: -8px;
+      width: 8px;
       left: auto;
       height: 100%;
       transform: skewY(41deg);
@@ -607,6 +792,10 @@ div {
 
     &--18 {
       font-size: 18px;
+    }
+
+    &--22 {
+      font-size: 22px;
     }
 
     &--25 {
@@ -829,6 +1018,10 @@ div {
       width: 100%;
       @include sp {
         font-size: 20px;
+      }
+
+      span {
+        color: $secondary-color;
       }
       
       &--name {
@@ -1409,24 +1602,24 @@ div {
   30% {
     width: 500px;
     height: 550px;
-    transform: rotateZ(0deg) rotateY(30deg) rotateX(-28deg);
-    box-shadow: 55px 55px 25px -10px rgba(0, 0, 0, 0.4);
+    transform: rotateZ(8deg) rotateY(30deg) rotateX(-28deg);
+    box-shadow: 45px 45px 25px -10px rgba(0, 0, 0, 0.4);
   }
   33% {
     width: 500px;
     height: 550px;
-    transform: rotateZ(0deg) rotateY(30deg) rotateX(-28deg);
-    box-shadow: 55px 55px 25px -10px rgba(0, 0, 0, 0.4);
+    transform: rotateZ(8deg) rotateY(30deg) rotateX(-28deg);
+    box-shadow: 45px 45px 25px -10px rgba(0, 0, 0, 0.4);
   }
   60% {
     width: 700px;
     height: 450px;
-    transform: rotateZ(0deg) rotateY(30deg) rotateX(-28deg);
+    transform: rotateZ(8deg) rotateY(30deg) rotateX(-28deg);
   }
   65% {
     width: 700px;
     height: 450px;
-    transform: rotateZ(0deg) rotateY(30deg) rotateX(-28deg);
+    transform: rotateZ(8deg) rotateY(30deg) rotateX(-28deg);
   }
   90% {
     width: 275px;
@@ -1479,13 +1672,40 @@ div {
     transform: rotateZ(25deg) rotateY(30deg) rotateX(-28deg);
   }
 }
-@keyframes phoneSp {
+@keyframes phoneGradient {
   0% {
-    box-shadow: 55px 55px 25px -10px rgba(0, 0, 0, 0.4);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.2;
+    background-color: rgba(196, 0, 92, 0.316);
+  }
+  35% {
+    background-color: rgba(196, 0, 92, 0.316);
+  }
+  45% {
+    background-color: rgba(53, 43, 46, 0.377);
+  }
+  65% {
+    background-color: rgba(53, 43, 46, 0.377);
+  }
+  75% {
+    background-color: rgba(196, 0, 92, 0.316);
+  }
+  85% {
+    background-color: rgba(196, 0, 92, 0.316);
+  }
+  90% {
+    opacity: 0.2;
+    background-color: rgba(53, 43, 46, 0.377);
+  }
+  95% {
+    opacity: 0;
   }
   100% {
-    width: 150px;
-    height: 300px;
-    transform: rotateZ(25deg) rotateY(30deg) rotateX(-28deg);
+    opacity: 0;
   }
 }
