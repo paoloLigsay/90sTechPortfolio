@@ -5,7 +5,7 @@ This project is inspired with both 90s and modern tech based design and color sc
 ### mainvisual of the website
 ![](src/img/portfolio.jpg)
 ### here are the lower sections of my website 
-![](src/img/portfolio_long.jpg)
+![](src/img/portfolio_full.jpg)
 
 ## SASS Compiler
 Try installing this extension if your using VS Code:
