@@ -4,7 +4,8 @@ This project is inspired with both 90s and modern tech based design and color sc
 ## Here's what it looks like! 
 ### mainvisual of the website
 ![](src/img/portfolio.jpg)
-### here are the lower sections of my website 
+### here are the lower sections of the website
+sections and design features are updated from time to time, here are the current lower section of the page! 
 ![](src/img/portfolio_full.jpg)
 
 ## SASS Compiler
