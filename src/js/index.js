@@ -66,7 +66,7 @@ can't submit ...
 contact_input[0].onkeyup = () => {
   emailValidation = validateEmail(contact_input[1].value)
 
-  if(!contact_input[0].value == '' && !contact_input[1].value == '' && !contact_content.value == '' && emailValidation) {
+  if (!contact_input[0].value == '' && !contact_input[1].value == '' && !contact_content.value == '' && emailValidation) {
     contact_btn.classList.remove('button--disabled')
     contact_btn.value = `submit`
     contact_btn.removeAttribute('disabled')
@@ -77,8 +77,8 @@ contact_input[0].onkeyup = () => {
     can't submit ...
     `
   }
-  
-  if(!contact_input[0].value == '') {
+
+  if (!contact_input[0].value == '') {
     contact_name.style.opacity = 0
     contact_name.style.transform = 'translateX(-20px)'
   } else {
@@ -90,7 +90,7 @@ contact_input[0].onkeyup = () => {
 contact_input[1].onkeyup = () => {
   emailValidation = validateEmail(contact_input[1].value)
 
-  if(!contact_input[0].value == '' && !contact_input[1].value == '' && !contact_content.value == '' && emailValidation) {
+  if (!contact_input[0].value == '' && !contact_input[1].value == '' && !contact_content.value == '' && emailValidation) {
     contact_btn.classList.remove('button--disabled')
     contact_btn.value = `submit`
     contact_btn.removeAttribute('disabled')
@@ -102,19 +102,19 @@ contact_input[1].onkeyup = () => {
     `
   }
 
-  if(!contact_input[1].value == '' && emailValidation) {
+  if (!contact_input[1].value == '' && emailValidation) {
     contact_email.style.opacity = 0
     contact_email.style.transform = 'translateX(-20px)'
   } else {
     contact_email.style.opacity = 1
     contact_email.style.transform = 'translateX(0)'
-  } 
+  }
 }
 
 contact_content.onkeyup = () => {
   emailValidation = validateEmail(contact_input[1].value)
 
-  if(!contact_input[0].value == '' && !contact_input[1].value == '' && !contact_content.value == '' && emailValidation) {
+  if (!contact_input[0].value == '' && !contact_input[1].value == '' && !contact_content.value == '' && emailValidation) {
     contact_btn.classList.remove('button--disabled')
     contact_btn.value = `submit`
     contact_btn.removeAttribute('disabled')
@@ -126,7 +126,7 @@ contact_content.onkeyup = () => {
     `
   }
 
-  if(!contact_content.value == '') {
+  if (!contact_content.value == '') {
     contact_msg.style.opacity = 0
     contact_msg.style.transform = 'translateX(-20px)'
   } else {
@@ -134,6 +134,40 @@ contact_content.onkeyup = () => {
     contact_msg.style.transform = 'translateX(0)'
   }
 }
+
+//removing scroll on innerheight less than 750
+
+let scroll = get('.pml-scroll')
+
+if (window.innerHeight < 750) {
+  scroll.style.display = 'none'
+}
+
+// phone animation
+
+let phone_btn = get('.phone-btn')
+let phone_gradient = get('.pml-phone__gradient')
+let phone_nav = get('.pml-phone__nav')
+let phone = get('.pml-phone')
+let phone_click = 2
+
+phone_btn.onclick = () => {
+  phone_nav.classList.toggle('pml-phone__nav--active')
+
+  if (phone_click%2 == 0) {
+    phone.style.animationPlayState = 'paused'
+    phone_gradient.style.animationPlayState = 'paused'
+    phone_btn.innerHTML = 'PLAY'
+  } else {
+    phone.style.animationPlayState = 'running'
+    phone_gradient.style.animationPlayState = 'running'
+    phone_btn.innerHTML = 'PAUSE'
+  }
+  phone_click++
+}
+
+
+// functions
 
 function validateEmail(email) {
   var isEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
